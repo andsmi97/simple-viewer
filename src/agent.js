@@ -44,8 +44,10 @@ const requests = {
 
 const Actions = {
   getAll: () => requests.get("/actions"),
-  onClick: id => requests.post(`/actions/onClick?id=${id}`),
-  onChange: (id, value) => requests.post(`/actions/onClick?id=${id}`, { value })
+  onClick: (actionId, actionTypeDataId) =>
+    requests.post(`/actions/${actionId}/${actionTypeDataId}`),
+  onChange: (actionId, actionTypeDataId, value) =>
+    requests.post(`/actions/${actionId}/${actionTypeDataId}`, { value })
 };
 
 export default {

@@ -3,6 +3,7 @@ import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/core/styles";
 import ActionComponent from "./ActionComponent";
 import agent from "./agent";
+
 const useStyles = makeStyles(theme => ({
   paper: {
     margin: 24,
@@ -17,6 +18,7 @@ const useStyles = makeStyles(theme => ({
     margin: 8
   }
 }));
+
 const App = () => {
   const classes = useStyles();
   const [actionGroups, setActionGroups] = useState([]);
@@ -41,6 +43,7 @@ const App = () => {
                   <ActionComponent
                     key={action.id}
                     className={classes.actionComponent}
+                    actionGroupId={actionGroup.id}
                     {...action}
                   >
                     {action.name}

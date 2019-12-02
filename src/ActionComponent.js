@@ -24,7 +24,7 @@ const ActionComponent = props => {
   const onChange = async (e, newValue) => {
     setValue(newValue);
     try {
-      await agent.Actions.onChange(props.id, newValue);
+      await agent.Actions.onChange(props.id, props.actionGroupId, newValue);
     } catch (err) {
       console.error(err);
     }
@@ -32,7 +32,7 @@ const ActionComponent = props => {
   const onClick = async e => {
     if (props.action_type !== "Switch") {
       try {
-        await agent.Actions.onClick(props.id);
+        await agent.Actions.onClick(props.id, props.actionGroupId);
       } catch (err) {
         console.error(err);
       }
